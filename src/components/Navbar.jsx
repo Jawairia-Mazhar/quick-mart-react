@@ -36,7 +36,7 @@ const Navbar = () => {
   </div>
 
         <ul id="nav-menu" 
-        className={`${isMenuOpen ? 'flex' : 'hidden'}               //JS if the isMenuOpen is true, show the menu, else hide it
+        className={`${isMenuOpen ? 'flex' : 'hidden'} //JS if the isMenuOpen is true, show the menu, else hide it
         top-full left-0 right-0 space-y-2 px-4 py-3 font-lg bg-orange-20 
         md:flex md:flex-row md:static  md:space-y-0 md:space-x-8 md:p-0 md:bg-transparent md:items-center md:justify-center' `}>
             <li><a href="#home-page" className="text-gray-700 hover:text-orange-500 hover:font-semibold">Home</a></li>
