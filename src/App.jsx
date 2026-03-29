@@ -4,7 +4,6 @@ import Hero from "./components/Hero"
 import FeaturedCategories from "./components/CategoryList"
 import PromoBanners from "./components/PromoBanners"
 import ProductGrid from "./components/ProductGrid"
-import ProductCard from "./components/ProductCard"
 import CartSidebar from "./components/CartSidebar"
 import AboutUs from "./components/AboutUs"
 import Stats from "./components/Stats"
@@ -52,18 +51,12 @@ const App = () => {
   }
 
   return (
-    <class>
+    <>
       <Navbar cart={cart} onCartOpen={() => setIsCartOpen(true)}  />
       <Hero />
       <FeaturedCategories />
       <PromoBanners />
       <ProductGrid         
-        cart={cart}
-        onAdd={onAdd}
-        onIncrease={onIncrease}
-        onDecrease={onDecrease}
-      />
-      <ProductCard 
         cart={cart}
         onAdd={onAdd}
         onIncrease={onIncrease}
@@ -81,7 +74,7 @@ const App = () => {
       <Stats />
       <Testimonials />
       <Footer />
-    </class>
+    </>
   )
 }
 

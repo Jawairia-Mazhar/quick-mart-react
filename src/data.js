@@ -1,31 +1,32 @@
-const mangoImg = new URL('./assets/mango.png', import.meta.url).href;
-const appleImg = new URL('./assets/apple.png', import.meta.url).href;
-const potatoImg = new URL('./assets/potato.png', import.meta.url).href;
-const breadImg = new URL('./assets/bread.png', import.meta.url).href;
-const milkImg = new URL('./assets/milk.png', import.meta.url).href;
-const eggImg = new URL('./assets/egg.png', import.meta.url).href;
+// ✅ Replace all the new URL() lines with direct imports
+import mangoImg from './assets/mango.png';
+import appleImg from './assets/apple.png';
+import potatoImg from './assets/potato.png';
+import breadImg from './assets/bread.png';
+import milkImg from './assets/milk.png';
+import eggImg from './assets/egg.png';
 
-const carrotImg = new URL('./assets/vegetable.png', import.meta.url).href;
-const fruitImg = new URL('./assets/fruit.png', import.meta.url).href;
-const bakeryImg = new URL('./assets/bakery.png', import.meta.url).href;
-const meatImg = new URL('./assets/meat.png', import.meta.url).href;
-const dairyImg = new URL('./assets/dairy.png', import.meta.url).href;
-const snacksImg = new URL('./assets/snacks.png', import.meta.url).href;
+import carrotImg from './assets/vegetable.png';
+import fruitImg from './assets/fruit.png';
+import bakeryImg from './assets/bakery.png';
+import meatImg from './assets/meat.png';
+import dairyImg from './assets/dairy.png';
+import snacksImg from './assets/snacks.png';
 
 export const mostBoughtProducts = [
-    {id: 1, name: "Mango", price: 350, quantity: "500gm", image: mangoImg || 'https://via.placeholder.com/96x96?text=Mango'},
-    {id: 2, name: "Apples", price: 280, quantity: "500gm", image: appleImg || 'https://via.placeholder.com/96x96?text=Apples'},
-    {id: 3, name: "Potato", price: 150, quantity: "1 kg", image: potatoImg || 'https://via.placeholder.com/96x96?text=Potato'},
-    {id: 4, name: "Bread", price: 200, quantity: "Medium", image: breadImg || 'https://via.placeholder.com/96x96?text=Bread'},
-    {id: 5, name: "Milk", price: 120, quantity: "500 ML", image: milkImg || 'https://via.placeholder.com/96x96?text=Milk'},
-    {id: 6, name: "Eggs", price: 180, quantity: "6", image: eggImg || 'https://via.placeholder.com/96x96?text=Eggs'},
+    {id: 1, name: "Mango", price: 350, quantity: "500gm", image: mangoImg},
+    {id: 2, name: "Apples", price: 280, quantity: "500gm", image: appleImg},
+    {id: 3, name: "Potato", price: 150, quantity: "1 kg", image: potatoImg},
+    {id: 4, name: "Bread", price: 200, quantity: "Medium", image: breadImg},
+    {id: 5, name: "Milk", price: 120, quantity: "500 ML", image: milkImg},
+    {id: 6, name: "Eggs", price: 180, quantity: "6", image: eggImg},
 ];
 
 export const featuredCategories = [
-    {id: 1, name: "Vegetables", image: carrotImg || 'https://via.placeholder.com/96x96?text=Vegetables'},
-    {id: 2, name: "Fruits", image: fruitImg || 'https://via.placeholder.com/96x96?text=Fruits'},
-    {id: 3, name: "Bakery", image: bakeryImg || 'https://via.placeholder.com/96x96?text=Bakery'},
-    {id: 4, name: "Meat", image: meatImg || 'https://via.placeholder.com/96x96?text=Meat'},
-    {id: 5, name: "Milk & Dairy", image: dairyImg || 'https://via.placeholder.com/96x96?text=Milk+Dairy'},
-    {id: 6, name: "Snacks", image: snacksImg || 'https://via.placeholder.com/96x96?text=Snacks'},
+    {id: 1, name: "Vegetables", image: carrotImg},
+    {id: 2, name: "Fruits", image: fruitImg},
+    {id: 3, name: "Bakery", image: bakeryImg},
+    {id: 4, name: "Meat", image: meatImg},
+    {id: 5, name: "Milk & Dairy", image: dairyImg},
+    {id: 6, name: "Snacks", image: snacksImg},
 ];
