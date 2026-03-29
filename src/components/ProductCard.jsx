@@ -2,9 +2,10 @@ import React from 'react'
 import plusIcon from "../assets/plus.png"
 import minusIcon from "../assets/minus.png" 
 import cartBasket from "../assets/basket.png"
-// import {mostBoughtProducts} from "../data.js"
 
 const ProductCard = ({ product, cart, onAdd, onIncrease, onDecrease }) => {
+    if (!product || !cart) return null;
+    
     const inCart = cart[product.id]; // Check if the product is in the cart
     const qty = inCart ? inCart.qty : 0 // Get the quantity from the cart, default to 0 if not in cart
   return (
@@ -36,7 +37,7 @@ const ProductCard = ({ product, cart, onAdd, onIncrease, onDecrease }) => {
                   <img src={plusIcon} alt="Plus" className="w-full h-full object-contain brightness-0 invert" />
               </button>
 
-              <input type="text" className="text-sm font-medium w-8 text-center border-l border-r border-gray-200 " data-id={product.id} min="1" value={qty} />
+              <input type="text" className="text-sm font-medium w-8 text-center border-l border-r border-gray-200 " data-id={product.id} min="1" value={qty} readOnly/>
 
               <button onClick={() => onDecrease(product.id)} 
               className="btn-minus w-6 h-5 bg-orange-400 font-bold" aria-label="Decrease quantity">

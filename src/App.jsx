@@ -4,14 +4,17 @@ import Hero from "./components/Hero"
 import FeaturedCategories from "./components/CategoryList"
 import PromoBanners from "./components/PromoBanners"
 import ProductGrid from "./components/ProductGrid"
+import ProductCard from "./components/ProductCard"
+import CartSidebar from "./components/CartSidebar"
 import AboutUs from "./components/AboutUs"
 import Stats from "./components/Stats"
 import Testimonials from "./components/Testimonials"
 import Footer from "./components/Footer"
-import { useState } from 'react'
+
 
 const App = () => {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = React.useState({});
+  const [isCartOpen, setIsCartOpen] = React.useState(false);
 
   function onAdd(product) {
     setCart(prev => ({ // Current cart state is passed as 'prev'
@@ -21,14 +24,14 @@ const App = () => {
         : { ...product, qty: 1 }
     }));
   }
-
+  
   function onIncrease(productId) {
     setCart(prev => ({
       ...prev,
       [productId]: { ...prev[productId], qty: prev[productId].qty + 1 }
     }));
   }
-
+  
   function onDecrease(productId) {
     setCart(prev => {
       const item = prev[productId];
@@ -40,9 +43,17 @@ const App = () => {
       return { ...prev, [productId] : { ...item, qty: item.qty - 1 } };
     });
   }
+  function onRemove(productId) {
+    setCart(prev => {
+      const updated = { ...prev };
+      delete updated[productId];
+      return updated;
+    });
+  }
+
   return (
     <class>
-      <Navbar />
+      <Navbar cart={cart} onCartOpen={() => setIsCartOpen(true)}  />
       <Hero />
       <FeaturedCategories />
       <PromoBanners />
@@ -50,7 +61,22 @@ const App = () => {
         cart={cart}
         onAdd={onAdd}
         onIncrease={onIncrease}
-        onDecrease={onDecrease}/>
+        onDecrease={onDecrease}
+      />
+      <ProductCard 
+        cart={cart}
+        onAdd={onAdd}
+        onIncrease={onIncrease}
+        onDecrease={onDecrease}
+      />
+      <CartSidebar
+        cart={cart}
+        isCartOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        onAdd={onAdd}
+        onDecrease={onDecrease}
+        onRemove={onRemove}
+      />
       <AboutUs />
       <Stats />
       <Testimonials />
